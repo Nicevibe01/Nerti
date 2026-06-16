@@ -1,0 +1,120 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --bg-primary: #000000;
+    --bg-secondary: #080808;
+    --bg-card: #090909;
+    --bg-card-hover: #111111;
+    --border: #252525;
+    --text-primary: #f8fafc;
+    --text-secondary: #cbd5e1;
+    --text-muted: #94a3b8;
+    --accent: #8b5cf6;
+    --accent-light: #c4b5fd;
+  }
+
+  .light {
+    --bg-primary: #f8fafc;
+    --bg-secondary: #f1f5f9;
+    --bg-card: #ffffff;
+    --bg-card-hover: #f8fafc;
+    --border: #e2e8f0;
+    --text-primary: #0f172a;
+    --text-secondary: #475569;
+    --text-muted: #94a3b8;
+    --accent: #7c3aed;
+    --accent-light: #c4b5fd;
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    font-family: 'Inter', system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  ::selection {
+    background: rgba(139, 92, 246, 0.3);
+  }
+
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: var(--bg-secondary);
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: var(--border);
+    border-radius: 3px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--text-muted);
+  }
+}
+
+@layer utilities {
+  .bg-primary { background-color: var(--bg-primary); }
+  .bg-secondary { background-color: var(--bg-secondary); }
+  .bg-card { background-color: var(--bg-card); }
+  .bg-card-hover { background-color: var(--bg-card-hover); }
+  .border-default { border-color: var(--border); }
+  .text-primary { color: var(--text-primary); }
+  .text-secondary { color: var(--text-secondary); }
+  .text-muted { color: var(--text-muted); }
+  .text-accent { color: var(--accent); }
+  .text-accent-light { color: var(--accent-light); }
+
+  .card {
+    background-color: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+  }
+
+  .card-hover {
+    transition: background-color 0.15s ease, border-color 0.15s ease;
+  }
+
+  .card-hover:hover {
+    background-color: var(--bg-card-hover);
+    border-color: rgba(59, 130, 246, 0.3);
+  }
+
+  .skeleton {
+    background: linear-gradient(90deg, var(--border) 25%, var(--bg-card-hover) 50%, var(--border) 75%);
+    background-size: 200% 100%;
+    animation: shimmer 1.5s infinite;
+    border-radius: 6px;
+  }
+
+  @keyframes shimmer {
+    0% { background-position: 200% 0; }
+    100% { background-position: -200% 0; }
+  }
+
+  .gradient-text {
+    background: linear-gradient(135deg, #c4b5fd, #8b5cf6);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .glow-blue {
+    box-shadow: 0 0 20px rgba(139, 92, 246, 0.15);
+  }
+}
